@@ -1,0 +1,1083 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Roommate Hints</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .hint {
+            display: none;
+            padding: 15px;
+            margin: 10px 0 20px 0;
+            background-color: #eeeeee;
+        }
+
+        #room-list {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 最初に表示される部屋一覧 -->
+    <div id="room-list" class="page">
+
+        <h1>Roommate Hints</h1>
+
+        <p>ヒントが必要な場所を選んでください。</p>
+
+        <button onclick="showRoom('green-room')">
+            2階　緑の部屋
+        </button>
+
+        <button onclick="showRoom('red-room')">
+            2階　赤の部屋
+        </button>
+
+        <button onclick="showRoom('blue-room')">
+            1階　青の部屋
+        </button>
+
+        <button onclick="showRoom('living-room')">
+            キッチン＆リビングルーム
+        </button>
+
+        <button onclick="showRoom('black-room')">
+            1階　黒の部屋
+        </button>
+
+        <button onclick="showRoom('garage')">
+            ガレージ
+        </button>
+
+
+    </div>
+
+
+
+<!-- 緑の部屋 -->
+<div id="green-room" class="page">
+
+    <h1>2階　緑の部屋</h1>
+
+    <button onclick="showPuzzle('green-safe')">
+        4桁のダイヤル式金庫
+    </button>
+
+    <button onclick="showPuzzle('green-turtle')">
+        動かないカメ
+    </button>
+
+    <button onclick="showPuzzle('green-hamster')">
+        消えたハムスター
+    </button>
+
+    <button onclick="showPuzzle('green-battery-box')">
+        電池切れのボックス
+    </button>
+
+    <button onclick="showPuzzle('green-parrot')">
+        なつかないインコ
+    </button>
+
+    <button onclick="showRoomList()">
+        ← 部屋一覧に戻る
+    </button>
+
+</div>
+
+<!-- 緑の部屋：4桁のダイヤル式金庫 -->
+<div id="green-safe" class="page">
+
+    <h1>4桁のダイヤル式金庫</h1>
+
+    <button onclick="showHint('safe-hint1')">
+        Hint 1
+    </button>
+
+    <p id="safe-hint1" class="hint">
+        金庫の各スロットの上に描かれているイラストは、観葉植物を表しています。
+    </p>
+
+    <button onclick="showHint('safe-hint2')">
+        Hint 2
+    </button>
+
+    <p id="safe-hint2" class="hint">
+        イラストの観葉植物はすべてこの部屋にあります。それぞれの観葉植物を数字に置き換えられないでしょうか？
+    </p>
+
+    <button onclick="showHint('safe-answer')">
+        Answer
+    </button>
+
+    <p id="safe-answer" class="hint">
+         この部屋にある、それぞれの観葉植物の葉の枚数が、対応するスロットに入る数字です。
+    </p>
+
+    <button onclick="showRoom('green-room')">
+        ← 緑の部屋に戻る
+    </button>
+
+</div>
+
+<!-- 緑の部屋：動かないカメ -->
+<div id="green-turtle" class="page">
+
+    <h1>動かないカメ</h1>
+
+    <button onclick="showHint('turtle-hint1')">
+        Hint 1
+    </button>
+
+    <p id="turtle-hint1" class="hint">
+         棚に並んでいる本の中に「動物観察日誌」があります。
+    カメ吉に関する記述を読んでみてください。
+    エサをあげるのも忘れないでくださいね。
+    </p>
+
+    <button onclick="showHint('turtle-hint2')">
+        Hint 2
+    </button>
+
+    <p id="turtle-hint2" class="hint">
+        カメ吉のために室温を調整しましょう。エアコンのパネルはドアの横にあります。<br>
+        摂氏から華氏に変換する必要があるので、日誌に書かれている数式にしたがって計算してください。
+    </p>
+
+    <button onclick="showHint('turtle-answer')">
+        Answer
+    </button>
+
+    <p id="turtle-answer" class="hint">
+        2 × 26℃ ＋ 30 ＝ 82°F<br>
+    エアコンを82°Fに設定してください。
+    カメ吉が目覚めたら、棚の引き出しにあるエサをあげるのを忘れないでくださいね。
+    </p>
+
+    <button onclick="showRoom('green-room')">
+        ← 緑の部屋に戻る
+    </button>
+
+</div>
+
+
+<!-- 緑の部屋：消えたハムスター -->
+<div id="green-hamster" class="page">
+
+    <h1>消えたハムスター</h1>
+
+    <button onclick="showHint('hamster-hint1')">
+        Hint 1
+    </button>
+
+    <p id="hamster-hint1" class="hint">
+        棚に並んでいる本の中に「動物観察日誌」があります。
+    ハミーに関する記述を読んでみてください。
+    </p>
+
+    <button onclick="showHint('hamster-hint2')">
+        Hint 2
+    </button>
+
+    <p id="hamster-hint2" class="hint">
+        ハムスターはヒマワリの種がある場所の近くに隠れています。食べ物で誘ってみてはどうでしょうか？
+    </p>
+
+    <button onclick="showHint('hamster-answer')">
+        Answer
+    </button>
+
+    <p id="hamster-answer" class="hint">
+        棚にあるオレンジ色のカップにヒマワリの種を置いて、一度その場を離れてから、もう一度見に行ってください。
+    きっとハミーが誘われて姿を現すでしょう。
+    </p>
+
+    <button onclick="showRoom('green-room')">
+        ← 緑の部屋に戻る
+    </button>
+
+</div>
+
+<!-- 緑の部屋：電池切れのボックス -->
+<div id="green-battery-box" class="page">
+
+    <h1>電池切れのボックス</h1>
+
+    <button onclick="showHint('battery-box-hint1')">
+        Hint 1
+    </button>
+
+    <p id="battery-box-hint1" class="hint">
+        このボックスはハムスターケージとケーブルでつながっています。ハムスターがいない場合は先にハムスターを連れ戻してください。
+    </p>
+
+    <button onclick="showHint('battery-box-hint2')">
+        Hint 2
+    </button>
+
+    <p id="battery-box-hint2" class="hint">
+        ハムスターがいる場合は、ハムスターの世話をしてください。エサと水はありますか？ 水はどこかから汲んでくる必要がありそうですね。
+    </p>
+
+    <button onclick="showHint('battery-box-answer')">
+        Answer
+    </button>
+    　　
+    <p id="battery-box-answer" class="hint">
+    ヒマワリの種をピンクの皿に置いてください。<br>
+    水ボトルにも水を入れてください。水はペットボトルを使って、バスルームの水道から汲んでくることができます。<br>
+    そうすれば、ハミーは回し車で運動を始めるでしょう。
+    </p>
+
+    <button onclick="showRoom('green-room')">
+        ← 緑の部屋に戻る
+    </button>
+
+</div>
+
+
+<!-- 緑の部屋：なつかないインコ -->
+<div id="green-parrot" class="page">
+
+    <h1>なつかないインコ</h1>
+
+    <button onclick="showHint('parrot-hint1')">
+        Hint 1
+    </button>
+
+    <p id="parrot-hint1" class="hint">
+        棚に並んでいる本の中に「動物観察日誌」があります。
+    ヨシちゃんに関する記述を読んでみてください。
+    </p>
+
+    <button onclick="showHint('parrot-hint2')">
+        Hint 2
+    </button>
+
+    <p id="parrot-hint2" class="hint">
+        ヨシちゃんと話すためにはおばあさんの声が入ったボイスレコーダーが必要です。
+        まだ持っていない場合は、ハムスターのケージの周辺を調べてみましょう。
+    </p>
+
+    <button onclick="showHint('parrot-hint3')">
+    Hint 3
+</button>
+
+<p id="parrot-hint3" class="hint">
+    ヨシちゃんにエサをあげる順番が書かれたメモは見つけましたか？
+    棚にある、釘が打たれた板が怪しいようです。
+</p>
+
+
+    <button onclick="showHint('parrot-answer')">
+        Answer
+    </button>
+
+    <p id="parrot-answer" class="hint">
+        ボイスレコーダーはハムスターのケージの下のボックスにあります。ヨシちゃんに聞かせてください。
+        エサの順番が書かれたメモ書きは棚の釘が打たれた板を取り外すと見つかります。<br>
+        釘を取るにはドライバーが必要です。先にカメを動かす必要があります。
+    </p>
+
+    <button onclick="showRoom('green-room')">
+        ← 緑の部屋に戻る
+    </button>
+
+</div>
+
+
+   <!-- 赤の部屋 -->
+<div id="red-room" class="page">
+
+    <h1>2階　赤の部屋</h1>
+
+    <button onclick="showPuzzle('red-trunk')">
+        ロックのかかったトランク
+    </button>
+
+    <button onclick="showPuzzle('red-moon-pc')">
+        パソコン：月の満ち欠けの暗号
+    </button>
+
+    <button onclick="showPuzzle('red-europe-pc')">
+        パソコン：ヨーロッパ旅行の暗号
+    </button>
+
+
+    <button onclick="showRoomList()">
+        ← 部屋一覧に戻る
+    </button>
+
+</div>
+
+<!-- 赤の部屋：ロックのかかったトランク -->
+<div id="red-trunk" class="page">
+
+    <h1>ロックのかかったトランク</h1>
+
+    <button onclick="showHint('red-trunk-hint1')">
+        Hint 1
+    </button>
+
+    <p id="red-trunk-hint1" class="hint">
+    トランクのスロットには、それぞれⅠ・Ⅱ・Ⅲ・Ⅳsと表示されています。
+    どこか別の場所で、このローマ数字を見かけませんでしたか？<br>
+    例えば、バスルームの鏡にはⅠと書かれています。
+    </p>
+
+    <button onclick="showHint('red-trunk-hint2')">
+        Hint 2
+    </button>
+
+    <p id="red-trunk-hint2" class="hint">
+    バスルームの鏡にはⅠ、赤の部屋のランプにはⅡ、廊下の時計にはⅢ、赤の部屋の小机にはⅣと書かれています。
+トランクのスロットを回してみてください。それぞれ曜日を設定できるようです。
+ローマ数字が書かれた場所と曜日には、何か関係があるのではないでしょうか？
+    </p>
+
+    <button onclick="showHint('red-trunk-hint3')">
+        Hint 3
+    </button>
+
+    <p id="red-trunk-hint3" class="hint">
+    それぞれの物を表す漢字の「偏」に注目してみてください。<br>
+    例えば、Ⅰの「鏡」は何偏でしょうか？
+    </p>
+
+    <button onclick="showHint('red-trunk-answer')">
+       answer
+    </button>
+
+    <p id="red-trunk-answer" class="hint">
+    Ⅰの「鏡」は金偏なので Friday、<br>
+    Ⅱの「灯」は火偏なので Tuesday、<br>
+    Ⅲの「時」は日偏なので Sunday、<br>
+    Ⅳの「机」は木偏なので Thursday です。
+    </p>
+
+    <button onclick="showRoom('red-room')">
+        ← 赤の部屋に戻る
+    </button>
+
+</div>
+
+
+<!-- 赤の部屋：月の満ち欠けの暗号 -->
+<div id="red-moon-pc" class="page">
+
+    <h1>パソコン：月の満ち欠けの暗号</h1>
+
+<button onclick="showHint('moon-pc-hint1')">
+    Hint 1
+</button>
+
+<p id="moon-pc-hint1" class="hint">
+    パソコンのPINコードを入手するには、月の満ち欠けの暗号を解く必要があります。<br>
+    えんぴつを使うと、どこかから4つの月を見つけられるかもしれません。
+</p>
+
+<button onclick="showHint('moon-pc-hint2')">
+    Hint 2
+</button>
+
+<p id="moon-pc-hint2" class="hint">
+    小机の上にある紙をえんぴつでこすってみてください。<br>
+    上に置かれていた紙の筆圧が残っていたようで、4つの月が浮かび上がります。<br>
+    この4つの月は、部屋にあるカレンダーを使って数字に置き換えることができます。
+</p>
+
+<button onclick="showHint('moon-pc-hint3')">
+    Hint 3
+</button>
+
+<p id="moon-pc-hint3" class="hint">
+    浮かび上がった月の形を、そのまま読むとは限りません。<br>
+    えんぴつでこすって白く見えている部分は、元の紙ではどのように描かれていたでしょうか？
+</p>
+
+<button onclick="showHint('moon-pc-answer')">
+    Answer
+</button>
+
+<p id="moon-pc-answer" class="hint">
+    浮かび上がった月は、右半月・新月・満月・左半月に見えます。<br>
+    しかし、えんぴつでこすって白く浮かび上がった部分は、元の紙では黒く描かれていたと考えられます。<br><br>
+
+    そのため、月の形を逆に考えると、左半月・満月・新月・右半月になります。<br>
+    カレンダーと照らし合わせると、それぞれ12日・5日・20日・28日です。<br><br>
+
+    PINコードは <strong>1252028</strong> です。
+</p>
+
+    <button onclick="showRoom('red-room')">
+        ← 赤の部屋に戻る
+    </button>
+
+</div>
+
+
+<!-- 赤の部屋：ヨーロッパ旅行の暗号 -->
+<div id="red-europe-pc" class="page">
+
+    <h1>パソコン：ヨーロッパ旅行の暗号</h1>
+
+    <button onclick="showHint('europe-pc-hint1')">
+        Hint 1
+    </button>
+
+    <p id="europe-pc-hint1" class="hint">
+    パソコンには3×3の9つの点が表示されています。点から点へとなぞると線が引けます。<br>
+    この点とヨーロッパ地図を見比べてみてください。
+    9つの点は、それぞれヨーロッパの国を表しているようです。
+    </p>
+
+    <button onclick="showHint('europe-pc-hint2')">
+        Hint 2
+    </button>
+    
+    <p id="europe-pc-hint2" class="hint">
+    小机の上の紙は読みましたか？<br>
+    旅の経路に関するルールが書かれています。
+赤の部屋にある3枚の搭乗券も見比べながら、旅の経路を考えてみてください。
+    </p>
+
+    <button onclick="showHint('europe-pc-answer')">
+        Answer
+    </button>
+
+   <p id="europe-pc-answer" class="hint">
+    旅の経路は次のようになります。<br><br>
+
+    <strong>
+        イギリス → ドイツ → ノルウェー → フィンランド → ポーランド →
+        ルーマニア → イタリア → スペイン → フランス → イギリス
+    </strong><br><br>
+
+    これを9つの点に当てはめると、次の順番になります。<br><br>
+
+    <strong>
+        左上 → 中央 → 上中央 → 右上 → 右中央 →
+        右下 → 下中央 → 左下 → 左中央 → 左上
+    </strong>
+</p>
+
+    <button onclick="showRoom('red-room')">
+        ← 赤の部屋に戻る
+    </button>
+
+</div>
+
+
+
+
+   <!-- 青の部屋 -->
+<div id="blue-room" class="page">
+
+    <h1>1階　青の部屋</h1>
+
+    <button onclick="showPuzzle('blue-figure')">
+        フィギュア人形
+    </button>
+
+    <button onclick="showRoomList()">
+        ← 部屋一覧に戻る
+    </button>
+
+</div>
+
+<!-- 青の部屋：フィギュア人形 -->
+<div id="blue-figure" class="page">
+
+    <h1>フィギュア人形</h1>
+
+    <button onclick="showHint('blue-figure-hint1')">
+        Hint 1
+    </button>
+
+    <p id="blue-figure-hint1" class="hint">
+        ボックスには、フィギュアを正しい順番ではめる必要があるようです。
+フィギュアの手が動くことも忘れないでくださいね。
+    </p>
+
+    <button onclick="showHint('blue-figure-hint2')">
+        Hint 2
+    </button>
+
+    <p id="blue-figure-hint2" class="hint">
+        段ボールの中にあるUSBは見つけましたか？<br>
+2階のどこかで再生してみると、フィギュアの並び順に関するヒントが得られそうです。<br>
+フィギュアのポーズは、チェキボードで確認してみてください。
+    </p>
+
+    <button onclick="showHint('blue-figure-answer')">
+        Answer
+    </button>
+
+    <p id="blue-figure-answer" class="hint">
+       並び順は、<strong>ブルー担当のりえ → グリーン担当のゆか → パープル担当のみなみ → イエロー担当のさち → レッド担当のみゆき</strong>です。<br><br>
+
+    チェキボードを見ると、ポーズは次のようになっています。<br>
+    りえ：左手を上げる<br>
+    ゆか：左手を上げる<br>
+    みなみ：両手を下げる<br>
+    さち：右手を上げる<br>
+    みゆき：両手を上げる
+    </p>
+
+    <button onclick="showRoom('blue-room')">
+        ← 青の部屋に戻る
+    </button>
+
+</div>
+
+
+    <!-- キッチン＆リビングルーム -->
+<div id="living-room" class="page">
+
+    <h1>キッチン＆リビングルーム</h1>
+
+    <button onclick="showPuzzle('living-colorful-shelf')">
+        カラフルな棚
+    </button>
+
+    <button onclick="showPuzzle('living-vent-item')">
+        通気口の奥のアイテム
+    </button>
+
+    <button onclick="showRoomList()">
+        ← 部屋一覧に戻る
+    </button>
+
+</div>
+
+<!-- キッチン＆リビング：カラフルな棚 -->
+<div id="living-colorful-shelf" class="page">
+
+    <h1>カラフルな棚</h1>
+
+    <button onclick="showHint('colorful-shelf-hint1')">
+        Hint 1
+    </button>
+
+    <p id="colorful-shelf-hint1" class="hint">
+    中央のガラスの扉を開くには、すべての引き出しを閉じる必要があるようです。<br>
+ただし、引き出しは好きな順番で閉められるわけではありません。
+次にどの引き出しを閉めることができるのか、そのルールを探してみてください。
+    </p>
+
+    <button onclick="showHint('colorful-shelf-hint2')">
+        Hint 2
+    </button>
+
+    <p id="colorful-shelf-hint2" class="hint">
+        各引き出しには、取っ手と本体にそれぞれ色がついています。
+引き出しを閉める順番と、この2つの色には何か関係があるのではないでしょうか？
+    </p>
+
+    <button onclick="showHint('colorful-shelf-answer')">
+        Answer
+    </button>
+    
+    <p id="colorful-shelf-answer" class="hint">
+    取っ手の色は、次に閉めることのできる引き出しの本体の色を示しています。<br><br>
+
+    例えば、「茶色の取っ手・黒の本体」の引き出しを閉めた場合、
+    次に閉めることができるのは「茶色の本体」の引き出しです。<br><br>
+
+    閉める順番は一通りではありません。
+このルールに従って、すべての引き出しを閉じてみてください。
+    </p>
+    <button onclick="showRoom('living-room')">
+        ← キッチン＆リビングルームに戻る
+    </button>
+
+</div>
+
+
+<!-- キッチン＆リビング：通気口のアイテム -->
+<div id="living-vent-item" class="page">
+
+    <h1>通気口の奥のアイテム</h1>
+
+    <button onclick="showHint('vent-item-hint1')">
+        Hint 1
+    </button>
+
+    <p id="vent-item-hint1" class="hint">
+        通気口の奥には、2つのアイテムが落ちています。
+それぞれを手に入れるには、別のアイテムが必要なようです。
+    </p>
+
+    <button onclick="showHint('vent-item-hint2')">
+        Hint 2
+    </button>
+
+    <p id="vent-item-hint2" class="hint">
+        左側のカードは、何かの磁力を利用すると取れそうですね。<br>
+右側のアイテムは、必ずしも実物そのものを手に入れる必要はなさそうです。
+    </p>
+
+    <button onclick="showHint('vent-item-answer')">
+        Answer
+    </button>
+
+    <p id="vent-item-answer" class="hint">
+        左側のカードは、冷蔵庫にあるマグネットを使って取ることができます。<br>
+    右側のアイテムは、インスタントカメラで写真に撮ることで、コードの写真を手に入れることができます。
+    </p>
+
+    <button onclick="showRoom('living-room')">
+        ← キッチン＆リビングルームに戻る
+    </button>
+
+</div>
+
+
+
+
+
+    <!-- 黒の部屋 -->
+<div id="black-room" class="page">
+
+    <h1>1階　黒の部屋</h1>
+
+    <button onclick="showPuzzle('black-room-entry')">
+        黒の部屋への入り方
+    </button>
+
+    <button onclick="showPuzzle('black-light-door')">
+        10個の電球の付いた扉
+    </button>
+
+    <button onclick="showPuzzle('black-code-note')">
+        暗号の書かれたノート
+    </button>
+
+    <button onclick="showRoomList()">
+        ← 部屋一覧に戻る
+    </button>
+
+</div>
+
+<!-- 黒の部屋：黒の部屋への入り方 -->
+<div id="black-room-entry" class="page">
+
+    <h1>黒の部屋への入り方</h1>
+
+    <button onclick="showHint('black-entry-hint1')">
+        Hint 1
+    </button>
+
+    <p id="black-entry-hint1" class="hint">
+        黒の部屋に入るには、まず黒のカードキーが必要なようです。
+    </p>
+
+    <button onclick="showHint('black-entry-hint2')">
+        Hint 2
+    </button>
+
+    <p id="black-entry-hint2" class="hint">
+        黒のカードキーのほかに、部屋の主の名前も入力する必要があるようです。
+緑の部屋にあったピンク色の日記帳（枕の下）は読みましたか？
+黒のカードキーも、もう一度よく観察してみてください。
+    </p>
+
+    <button onclick="showHint('black-entry-answer')">
+        Answer
+    </button>
+
+    <p id="black-entry-answer" class="hint">
+        緑の部屋の主は <strong>WAKABA</strong>（赤の部屋のカレンダーより）<br>
+    赤の部屋の主は <strong>NAGISA</strong>（冷蔵庫のホワイトボードより）<br>
+    青の部屋の主は <strong>EITARO</strong>（青の部屋のチェキボードより）<br><br>
+
+    日記帳には、名前の頭文字が4つの方角の頭文字と一致すること、
+    また全員の名前に「A」が含まれていることが書かれています。<br><br>
+
+    黒のカードキーの裏には、名前の前半部分が消えていますが、
+    「TORU」という文字が残っています。<br>
+    これらの手掛かりをすべて合わせると、部屋の主の名前は
+    <strong>SATORU</strong> だと分かります。
+    </p>
+
+    <button onclick="showRoom('black-room')">
+        ← 黒の部屋に戻る
+    </button>
+
+</div>
+
+
+<!-- 黒の部屋：10個の電球の付いた扉 -->
+<div id="black-light-door" class="page">
+
+    <h1>10個の電球の付いた扉</h1>
+
+    <button onclick="showHint('light-door-hint1')">
+        Hint 1
+    </button>
+
+    <p id="light-door-hint1" class="hint">
+        この扉を開けるには、特殊な眼鏡が必要なようです。
+    </p>
+
+    <button onclick="showHint('light-door-hint2')">
+        Hint 2
+    </button>
+
+    <p id="light-door-hint2" class="hint">
+        リビングにあるカラフルな棚の中に鍵があります。
+    その鍵で、黒の部屋にある棚を開けてみてください。
+    </p>
+
+    <button onclick="showHint('light-door-answer')">
+        Answer
+    </button>
+
+    <p id="light-door-answer" class="hint">
+        黒の部屋の棚から眼鏡を手に入れたら、装着してください。
+    アイテムボックスのUIの下にある眼鏡のUIから装着できます。<br>
+    眼鏡を装着した状態で扉の赤いボタンを押すと、いくつかの電球が順番に点灯するのが見えるはずです。
+    赤いボタンが黄色に変わったら、点灯したのと同じ順番で電球に触ってみてください。
+    </p>
+
+    <button onclick="showRoom('black-room')">
+        ← 黒の部屋に戻る
+    </button>
+
+</div>
+
+
+<!-- 黒の部屋：暗号の書かれたノート -->
+<div id="black-code-note" class="page">
+
+    <h1>暗号の書かれたノート</h1>
+
+    <button onclick="showHint('code-note-hint1')">
+        Hint 1
+    </button>
+
+    <p id="code-note-hint1" class="hint">
+        このノートを読むには、特殊な眼鏡が必要なようです。
+    </p>
+
+    <button onclick="showHint('code-note-hint2')">
+        Hint 2
+    </button>
+
+    <p id="code-note-hint2" class="hint">
+        リビングにあるカラフルな棚の中に鍵があります。
+    その鍵で、黒の部屋にある棚を開けてみてください。
+    </p>
+
+    <button onclick="showHint('code-note-answer')">
+        Answer
+    </button>
+
+    <p id="code-note-answer" class="hint">
+         黒の部屋の棚から眼鏡を手に入れたら、装着してみてください。
+    アイテムボックスのUIの下にある眼鏡のUIから装着できます。<br>
+    眼鏡を装着した状態でノートを見ると、暗号が読めるようになります。
+    </p>
+
+    <button onclick="showRoom('black-room')">
+        ← 黒の部屋に戻る
+    </button>
+
+</div>
+
+
+   <!-- ガレージ -->
+<div id="garage" class="page">
+
+    <h1>ガレージ</h1>
+
+    <button onclick="showPuzzle('garage-breaker')">
+        ブレーカーの落とし方
+    </button>
+
+    <button onclick="showPuzzle('garage-ufo-water')">
+        UFOの給水方法
+    </button>
+
+    <button onclick="showPuzzle('garage-ufo-destination')">
+        UFOの帰還先コード
+    </button>
+
+    <button onclick="showPuzzle('garage-shutter-key')">
+        シャッターの鍵
+    </button>
+
+    <button onclick="showRoomList()">
+        ← 部屋一覧に戻る
+    </button>
+
+</div>
+
+<!-- ガレージ：ブレーカーの落とし方 -->
+<div id="garage-breaker" class="page">
+
+   <h1>ブレーカーの落とし方</h1>
+
+    <button onclick="showHint('breaker-hint1')">
+        Hint 1
+    </button>
+
+    <p id="breaker-hint1" class="hint">
+        キッチンに貼ってある注意書きは読みましたか？
+    </p>
+
+
+    <button onclick="showHint('breaker-answer')">
+        Answer
+    </button>
+
+    <p id="breaker-answer" class="hint">
+        黄色のトースターのダイヤルを回し、電子レンジのスタートボタンを押してみてください。
+さらに、ケトルをセットして電源を入れてください。
+ケトルはガレージにありますよ。
+    </p>
+
+
+    <button onclick="showRoom('garage')">
+        ← ガレージに戻る
+    </button>
+
+</div>
+
+
+<!-- ガレージ：UFOの給水方法 -->
+<div id="garage-ufo-water" class="page">
+
+    <h1>UFOの給水方法</h1>
+
+<button onclick="showHint('ufo-water-hint1')">
+    Hint 1
+</button>
+
+<p id="ufo-water-hint1" class="hint">
+    ガレージにある机の下が容器でふさがっています。
+容器は床に接着剤で張り付いているようです。消毒用アルコールスプレーを使ってみてください。
+青の部屋に空のスプレー、1階のバスルームの棚に消毒用アルコールがありますよ。
+
+</p>
+
+<button onclick="showHint('ufo-water-hint2')">
+    Hint 2
+</button>
+
+<p id="ufo-water-hint2" class="hint">
+    容器をどけると、壁に穴が空いているのが分かります。
+穴を触って、ホースを差し込んでみてください。
+この穴はどこにつながっているのでしょうか？
+</p>
+
+<button onclick="showHint('ufo-water-hint3')">
+    Hint 3
+</button>
+
+<p id="ufo-water-hint3" class="hint">
+    穴は庭につながっているようです。
+庭に出て、差し込んだホースを確認してみてください。
+ホースを蛇口につなぐには、もう少し長さが必要なようですね。
+どこかにホースを延長できるものはないでしょうか？
+</p>
+
+<button onclick="showHint('ufo-water-answer')">
+    Answer
+</button>
+
+<p id="ufo-water-answer" class="hint">
+    1階バスルームの棚にある延長ホースを使って、ホースを蛇口につなげてください。
+蛇口から水を出すのも忘れないでくださいね。
+</p>
+
+<button onclick="showRoom('garage')">
+    ← ガレージに戻る
+</button>
+
+</div>
+
+
+<!-- ガレージ：UFOの帰還先コード -->
+<div id="garage-ufo-destination" class="page">
+
+    <h1>UFOの帰還先コード</h1>
+
+    <button onclick="showHint('ufo-destination-hint1')">
+        Hint 1
+    </button>
+
+    <p id="ufo-destination-hint1" class="hint">
+    UFO内部にある舵ハンドルを回して、帰還先コードを入力する必要があるようです。
+帰還先コードの手掛かりは、黒の部屋にあるノートに書かれています。
+ノートを読むには、特殊な眼鏡が必要ですね。
+    </p>
+
+    <button onclick="showHint('ufo-destination-hint2')">
+        Hint 2
+    </button>
+    
+    <p id="ufo-destination-hint2" class="hint">
+    ノートには「帰還先コードは自室から観測可能」と書かれています。
+しかし、黒の部屋の窓は黒く塗りつぶされていて、外を見ることができません。
+窓にアルコールスプレーを吹きかけてみてください。
+空のスプレーは青の部屋、消毒用アルコールは1階のバスルームの棚にありますよ。
+    </p>
+    <button onclick="showHint('ufo-destination-hint3')">
+    Hint 3
+</button>
+
+<p id="ufo-destination-hint3" class="hint">
+    窓から空を観察するには、望遠鏡を使ってみてください。
+帰還先コードが数字として見えるはずです。
+でも、UFOに入力する必要があるのは数字ではないようですね。
+</p>
+
+
+    <button onclick="showHint('ufo-destination-answer')">
+        Answer
+    </button>
+
+    <p id="ufo-destination-answer" class="hint">
+    眼鏡を装着していると、空に浮かぶ暗号が解読され、数字として見えるようです。
+しかし、UFOに入力する必要があるのは、解読される前の暗号です。
+眼鏡を外した状態でもう一度望遠鏡をのぞいてみてください。
+6つの記号が見えるはずです。
+その6つの記号を、UFOの舵ハンドルを使って順番に入力してください。
+    </p>
+
+    <button onclick="showRoom('garage')">
+        ← ガレージに戻る
+    </button>
+
+</div>
+
+
+<!-- ガレージ：シャッターの鍵 -->
+<div id="garage-shutter-key" class="page">
+
+    <h1>シャッターの鍵</h1>
+
+    <button onclick="showHint('shutter-key-hint1')">
+        Hint 1
+    </button>
+
+    <p id="shutter-key-hint1" class="hint">
+    UFO内部にあるメモ書きは読みましたか？
+    </p>
+
+    <button onclick="showHint('shutter-key-hint2')">
+        Hint 2
+    </button>
+
+    <p id="shutter-key-hint2" class="hint">
+    メモ書きには「11:15」と書かれています。
+この家のどこかに時計があったのを覚えていますか？
+少し高い位置にあるので、調べるには何かアイテムが必要になりそうですね。
+    </p>
+
+    <button onclick="showHint('shutter-key-answer')">
+        Answer
+    </button>
+
+    <p id="shutter-key-answer" class="hint">
+     庭のロッカーに踏み台があります。
+それを使うと、2階廊下にある時計を操作できます。<br>
+    時計を<strong>11時15分</strong>に設定すると、鍵を手に入れることができます。
+    </p>
+
+    <button onclick="showRoom('garage')">
+        ← ガレージに戻る
+    </button>
+
+</div>
+
+
+    <script>
+
+        function showRoom(roomId) {
+
+            // すべてのページを探す
+            const pages = document.querySelectorAll(".page");
+
+            // いったん全部隠す
+            pages.forEach(function(page) {
+                page.style.display = "none";
+            });
+
+            // 選択された部屋だけ表示する
+            document.getElementById(roomId).style.display = "block";
+        }
+
+
+        function showRoomList() {
+
+            // すべてのページを探す
+            const pages = document.querySelectorAll(".page");
+
+            // 全部隠す
+            pages.forEach(function(page) {
+                page.style.display = "none";
+            });
+
+            // 部屋一覧だけ表示
+            document.getElementById("room-list").style.display = "block";
+        }
+
+        function showPuzzle(puzzleId) {
+
+    　　　　const pages = document.querySelectorAll(".page");
+
+    　　　　pages.forEach(function(page) {
+        　　　　page.style.display = "none";
+    　　　　});
+
+    　　　　// すべてのヒントを非表示に戻す
+    　　　　const hints = document.querySelectorAll(".hint");
+
+    　　　　hints.forEach(function(hint) {
+        　　　　hint.style.display = "none";
+    　　　　});
+
+    　　　　// 選択された謎ページを表示
+    　　　　document.getElementById(puzzleId).style.display = "block";
+　　　　}
+
+
+        function showHint(hintId) {
+
+            document.getElementById(hintId).style.display = "block";
+        }
+
+    </script>
+
+</body>
+
+</html>
