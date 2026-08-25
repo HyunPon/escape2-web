@@ -80,6 +80,10 @@
         <p>部屋の色は各部屋の壁紙の色です。
         </p>
 
+        <button onclick="showRoom('item-list')">
+    アイテムの場所
+</button>
+
 
     </div>
 
@@ -1080,6 +1084,43 @@
 
     <button onclick="showRoom('garage')">
         ← ガレージに戻る
+    </button>
+
+</div>
+
+<!-- アイテムの場所 -->
+<div id="item-list" class="page">
+
+    <h1>アイテムの場所</h1>
+
+    <button onclick="showHint('item-apple')">
+        りんご
+    </button>
+
+    <p id="item-apple" class="hint">
+        2階バスルームのマットの下を調べてください。<br>
+        その鍵で緑の部屋の冷蔵庫が開きます。
+    </p>
+
+    <button onclick="showHint('item-banana')">
+        バナナ
+    </button>
+
+    <p id="item-banana" class="hint">
+        2階バスルームのマットの下を調べてください。<br>
+        その鍵で緑の部屋の冷蔵庫が開きます。
+    </p>
+
+    <button onclick="showHint('item-enter-key')">
+        エンターキー
+    </button>
+
+    <p id="item-enter-key" class="hint">
+        コーヒー豆を挽いたあと、挽く前のコーヒー豆があったところをのぞいてみてください。
+    </p>
+
+    <button onclick="showRoomList()">
+        ← 最初のページに戻る
     </button>
 
 </div>
