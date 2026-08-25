@@ -326,6 +326,10 @@
         ロックのかかったトランク
     </button>
 
+    <button onclick="showPuzzle('red-blue-box')">
+    青い箱の開け方
+    </button>
+
     <button onclick="showPuzzle('red-moon-pc')">
         パソコン：月の満ち欠けの暗号
     </button>
@@ -384,6 +388,63 @@
     Ⅱの「灯」は火偏なので Tuesday、<br>
     Ⅲの「時」は日偏なので Sunday、<br>
     Ⅳの「机」は木偏なので Thursday です。
+    </p>
+
+    <button onclick="showRoom('red-room')">
+        ← 赤の部屋に戻る
+    </button>
+
+</div>
+
+<!-- 赤の部屋：青い箱の開け方 -->
+<div id="red-blue-box" class="page">
+
+    <h1>青い箱の開け方</h1>
+
+    <button onclick="showHint('red-blue-box-hint1')">
+        Hint 1
+    </button>
+
+    <p id="red-blue-box-hint1" class="hint">
+        ケーブルは見つけましたか？<br>
+        まだの場合は、先にロックのかかったトランクの謎を解いてください。<br>
+        ケーブルを手に入れたら、どこで使えるか考えてみてください。どこかに動かない機械があります。
+    </p>
+
+    <button onclick="showHint('red-blue-box-hint2')">
+        Hint 2
+    </button>
+
+    <p id="red-blue-box-hint2" class="hint">
+        ケーブルがなくて動かない機械は、コーヒーグラインダーです。<br>
+        電源が入ったら豆を挽いてみてください。挽いた豆は何に使えるでしょう？
+    </p>
+
+    <button onclick="showHint('red-blue-box-hint3')">
+        Hint 3
+    </button>
+
+    <p id="red-blue-box-hint3" class="hint">
+        挽いた豆は、隣にあるエスプレッソマシンでエスプレッソにしてください。<br>
+        では、そのエスプレッソを何に加えますか？
+    </p>
+
+    <button onclick="showHint('red-blue-box-hint4')">
+        Hint 4
+    </button>
+
+    <p id="red-blue-box-hint4" class="hint">
+        エスプレッソを窓辺にあるミルクに注いでください。<br>
+        数字が現れましたね。
+    </p>
+
+    <button onclick="showHint('red-blue-box-hint5')">
+        Hint 5
+    </button>
+
+    <p id="red-blue-box-hint5" class="hint">
+        青い箱には暗号を入力するように見えますが、実はデジタル数字を入力します。<br>
+        Hint 4で現れた数字を作ってください。
     </p>
 
     <button onclick="showRoom('red-room')">
