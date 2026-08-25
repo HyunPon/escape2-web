@@ -80,7 +80,7 @@
         <p>部屋の色は各部屋の壁紙の色です。
         </p>
 
-        <button onclick="showRoom('item-list')">
+       <button onclick="showItemList()">
     アイテムの場所
 </button>
 
@@ -1181,6 +1181,19 @@
 
             document.getElementById(hintId).style.display = "block";
         }
+
+        function showItemList() {
+
+    // まず普通にアイテムページを表示
+    showRoom('item-list');
+
+    // アイテムページ内で開いていた文章を全部閉じる
+    document
+        .querySelectorAll('#item-list .hint')
+        .forEach(hint => {
+            hint.style.display = 'none';
+        });
+}
 
     </script>
 
